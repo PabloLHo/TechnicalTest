@@ -1,29 +1,36 @@
 [
   {
+    "id": "f0ad43ba-b205-4afc-a9ad-7e2be1862d40",
     "title": "Learn React",
     "completed": true
   },
   {
+    "id": "5f4d1684-5183-4793-83f6-b4b174802c3a",
     "title": "Learn TypeScript",
     "completed": true
   },
   {
+    "id": "cfc8d737-4826-4218-bac4-73ebf4d9a9f3",
     "title": "Learn Vite",
     "completed": false
   },
   {
+    "id": "0d6629ea-82a3-4ffb-8d6e-029e990aef3a",
     "title": "Learn FastAPI",
     "completed": false
   },
   {
+    "id": "2fa49b26-14aa-4551-bdff-81e8d3b3c96b",
     "title": "Learn Docker",
     "completed": false
   },
   {
+    "id": "eae5c9a7-91e7-4c9f-ac75-5af284b8a40e",
     "title": "Learn PostgreSQL",
     "completed": false
   },
   {
+    "id": "1d3694f9-2781-48b9-8277-41621c0a77b1",
     "title": "Learn Tailwind CSS",
     "completed": false
   }

@@ -18,10 +18,9 @@ function App() {
     createTodo(title)
   };
 
-  const toggleTodo = (id: number) => {
+  const toggleTodo = (id: string) => {
     const todo = todos.find((t) => t.id === id);
     if (!todo) return;
-
     toggleTodoStatus(id, todo.completed).then((updated) => {
       setTodos((prev) => prev.map((t) => (t.id === id ? updated : t)));
     });

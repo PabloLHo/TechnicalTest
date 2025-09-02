@@ -1,4 +1,5 @@
 import json
+import uuid
 from pathlib import Path
 
 from fastapi import FastAPI
@@ -19,6 +20,11 @@ app.add_middleware(
 
 
 class Todo(BaseModel):
+    id: str
+    title: str
+    completed: bool = False
+
+class TodoCreate(BaseModel):
     title: str
     completed: bool = False
 
@@ -47,14 +53,15 @@ def get_todos():
 
 
 @app.post("/todos", response_model=Todo)
-def add_todo(todo: Todo):
+def add_todo(todo: TodoCreate):
     """
     Add a new todo.
 
     Args:
-        todo (Todo): The todo to add.
+        todo (TodoCreate): The todo to add.
     """
     todos = load_todos()
-    todos.append(todo)
+    new_todo = Todo(id = str(uuid.uuid4()), title=todo.title, completed=todo.completed)
+    todos.append(new_todo)
     save_todos(todos)
-    return todo
+    return new_todo
