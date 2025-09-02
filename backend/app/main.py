@@ -28,6 +28,10 @@ class TodoCreate(BaseModel):
     title: str
     completed: bool = False
 
+class TodoUpdate(BaseModel):
+    completed: bool
+
+
 
 def load_todos() -> list[Todo]:
     """Load todos from the JSON file."""
@@ -65,3 +69,22 @@ def add_todo(todo: TodoCreate):
     todos.append(new_todo)
     save_todos(todos)
     return new_todo
+
+
+@app.patch("/todos/{id}", response_model=Todo)
+def edit_todo(id: str, todo: TodoUpdate):
+    """
+    Edit a todo.
+
+    Args:
+        id (str): The ID for the todo to edit
+        todo (Todo): The todo to edit.
+    """
+    todos = load_todos()
+
+    for t in todos:
+        if t.id == id:
+            t.completed = todo.completed
+            save_todos(todos)
+            return t
+    

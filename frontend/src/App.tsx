@@ -16,6 +16,7 @@ function App() {
   const addTodo = () => {
     if (!title.trim()) return;
     createTodo(title)
+    setTitle("")
   };
 
   const toggleTodo = (id: string) => {

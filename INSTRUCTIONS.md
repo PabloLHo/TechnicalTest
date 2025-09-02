@@ -9,7 +9,7 @@ The goal is to demonstrate your understanding of the codebase and your ability t
 
 1. **Implement task completion status functionality**
    You can select a task as completed, but the status is not saved in the backend.
-   - [ ] Complete the implementation so that the status is saved in the backend and displayed in the frontend.
+   - [X] Complete the implementation so that the status is saved in the backend and displayed in the frontend.
 
 2. **Implement delete task functionality**.
    Allow users to delete individual todos from the list, both in the backend and frontend.
