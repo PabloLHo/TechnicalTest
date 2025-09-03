@@ -89,7 +89,7 @@ def edit_todo(id: str, todo: TodoUpdate):
             return t
         
 
-@app.delete("/todos/{id}", response_model=list[Todo])
+@app.delete("/todos/{id}")
 def delete_todo(id: str):
     """
     Delete a todo.

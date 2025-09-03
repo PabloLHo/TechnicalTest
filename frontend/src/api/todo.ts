@@ -9,13 +9,14 @@ export const getTodos = async (): Promise<Todo[]> => {
 };
 
 export const createTodo = async (title: string): Promise<void> => {
-  await fetch(BASE_URL, {
+  const res = await fetch(BASE_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ title, completed: false }),
   });
+  if (!res.ok) throw new Error("Error adding todo");
 };
 
 export const toggleTodoStatus = async (
@@ -38,5 +39,4 @@ export const removeTodo = async (id: string): Promise<void> => {
     method: "DELETE",
   });
   if (!res.ok) throw new Error("Error deleting todo");
-  return res.json();
-}
+};
