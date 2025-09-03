@@ -32,3 +32,11 @@ export const toggleTodoStatus = async (
   if (!res.ok) throw new Error("Error toggling todo status");
   return res.json();
 };
+
+export const removeTodo = async (id: string): Promise<void> => {
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw new Error("Error deleting todo");
+  return res.json();
+}

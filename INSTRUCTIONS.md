@@ -14,7 +14,7 @@ The goal is to demonstrate your understanding of the codebase and your ability t
 2. **Implement delete task functionality**.
    Allow users to delete individual todos from the list, both in the backend and frontend.
    - [X] Add a delete button next to each task in the UI.
-   - [ ] Implement the backend API endpoint to handle task deletion.
+   - [X] Implement the backend API endpoint to handle task deletion.
 
 3. **Auto-load Tasks**. The application should automatically fetch the todo list when:
    - [ ] The page loads.

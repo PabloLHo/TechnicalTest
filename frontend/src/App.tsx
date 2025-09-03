@@ -1,7 +1,7 @@
 // src/App.tsx
 import { useState } from "react";
 import type { Todo } from "./types/todo";
-import { getTodos, createTodo, toggleTodoStatus } from "./api/todo";
+import { getTodos, createTodo, toggleTodoStatus, removeTodo } from "./api/todo";
 import TodoForm from "./components/TodoForm"
 import TodoList from "./components/TodoList"
 
@@ -17,8 +17,8 @@ function App() {
 
   const addTodo = () => {
     if (!title.trim()) return;
-    createTodo(title)
-    setTitle("")
+    createTodo(title);
+    setTitle("");
   };
 
   const toggleTodo = (id: string) => {
@@ -30,7 +30,9 @@ function App() {
   };
 
   const deleteTodo = (id: string) => {
-
+    const todo = todos.find((t) => t.id === id);
+    if (!todo) return;
+    removeTodo(id);
   };
 
   return (

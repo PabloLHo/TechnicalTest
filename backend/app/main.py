@@ -78,7 +78,7 @@ def edit_todo(id: str, todo: TodoUpdate):
 
     Args:
         id (str): The ID for the todo to edit
-        todo (Todo): The todo to edit.
+        todo (TodoUpdate): The todo to edit.
     """
     todos = load_todos()
 
@@ -87,4 +87,21 @@ def edit_todo(id: str, todo: TodoUpdate):
             t.completed = todo.completed
             save_todos(todos)
             return t
-    
+        
+
+@app.delete("/todos/{id}", response_model=list[Todo])
+def delete_todo(id: str):
+    """
+    Delete a todo.
+
+    Args:
+        id (str): The ID for the todo to delete
+    """
+    todos = load_todos()
+
+    for t in todos:
+        if t.id == id:
+            todos.remove(t)
+            save_todos(todos)
+
+
