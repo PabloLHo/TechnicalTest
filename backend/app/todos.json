@@ -2,36 +2,50 @@
   {
     "id": "f0ad43ba-b205-4afc-a9ad-7e2be1862d40",
     "title": "Learn React",
-    "completed": true
+    "description": "Aprende a construir interfaces de usuario din\u00e1micas y modulares con componentes reutilizables en React.",
+    "completed": false,
+    "favourite": false
   },
   {
     "id": "5f4d1684-5183-4793-83f6-b4b174802c3a",
     "title": "Learn TypeScript",
-    "completed": true
+    "description": "Domina TypeScript para escribir c\u00f3digo m\u00e1s seguro y mantenible con tipado est\u00e1tico sobre JavaScript.",
+    "completed": false,
+    "favourite": false
   },
   {
     "id": "cfc8d737-4826-4218-bac4-73ebf4d9a9f3",
     "title": "Learn Vite",
-    "completed": false
+    "description": "Descubre c\u00f3mo usar Vite para crear aplicaciones web r\u00e1pidas con un entorno de desarrollo ligero y moderno.",
+    "completed": false,
+    "favourite": false
   },
   {
     "id": "0d6629ea-82a3-4ffb-8d6e-029e990aef3a",
     "title": "Learn FastAPI",
-    "completed": false
+    "description": "Explora FastAPI para desarrollar APIs eficientes y r\u00e1pidas en Python con validaci\u00f3n autom\u00e1tica de datos.",
+    "completed": false,
+    "favourite": false
   },
   {
     "id": "2fa49b26-14aa-4551-bdff-81e8d3b3c96b",
     "title": "Learn Docker",
-    "completed": false
+    "description": "Aprende a contenerizar aplicaciones con Docker para asegurar entornos reproducibles y f\u00e1ciles de desplegar.",
+    "completed": false,
+    "favourite": false
   },
   {
     "id": "eae5c9a7-91e7-4c9f-ac75-5af284b8a40e",
     "title": "Learn PostgreSQL",
-    "completed": false
+    "description": "Domina PostgreSQL para gestionar bases de datos relacionales potentes y realizar consultas SQL avanzadas.",
+    "completed": false,
+    "favourite": false
   },
   {
     "id": "1d3694f9-2781-48b9-8277-41621c0a77b1",
     "title": "Learn Tailwind CSS",
-    "completed": false
+    "description": "Descubre c\u00f3mo estilizar aplicaciones con Tailwind CSS usando utilidades modernas y dise\u00f1os responsivos.",
+    "completed": false,
+    "favourite": false
   }
 ]

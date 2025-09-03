@@ -5,6 +5,7 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from typing import Optional
 
 DATA_FILE = Path(__file__).parent / "todos.json"
 
@@ -22,14 +23,19 @@ app.add_middleware(
 class Todo(BaseModel):
     id: str
     title: str
+    description: str
     completed: bool = False
+    favourite: bool
 
 class TodoCreate(BaseModel):
     title: str
+    description: str
     completed: bool = False
+    favourite: bool = False
 
 class TodoUpdate(BaseModel):
-    completed: bool
+    completed: Optional[bool] = None
+    favourite: Optional[bool] = None
 
 
 
@@ -65,7 +71,7 @@ def add_todo(todo: TodoCreate):
         todo (TodoCreate): The todo to add.
     """
     todos = load_todos()
-    new_todo = Todo(id = str(uuid.uuid4()), title=todo.title, completed=todo.completed)
+    new_todo = Todo(id = str(uuid.uuid4()), title=todo.title, description=todo.description, completed=todo.completed, favourite=todo.favourite)
     todos.append(new_todo)
     save_todos(todos)
     return new_todo
@@ -84,7 +90,9 @@ def edit_todo(id: str, todo: TodoUpdate):
 
     for t in todos:
         if t.id == id:
-            t.completed = todo.completed
+            update_data = todo.model_dump(exclude_unset=True)
+            for field, value in update_data.items():
+                setattr(t, field, value)
             save_todos(todos)
             return t
         

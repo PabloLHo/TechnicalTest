@@ -17,15 +17,15 @@ The goal is to demonstrate your understanding of the codebase and your ability t
    - [X] Implement the backend API endpoint to handle task deletion.
 
 3. **Auto-load Tasks**. The application should automatically fetch the todo list when:
-   - [ ] The page loads.
+   - [X] The page loads.
    - [X] The user adds a new task.
    - [X] The user deletes a task.
    - [X] The user marks a task as completed.
 
 4. **Add Descriptions and Favorite Tasks Section**
-   - [ ] Add a description field to each task.
-   - [ ] Introduce the concept of a `favorite` tasks.
-   - [ ] Add a way to mark/unmark tasks as favorite.
+   - [X] Add a description field to each task.
+   - [X] Introduce the concept of a `favorite` tasks.
+   - [X] Add a way to mark/unmark tasks as favorite.
    - [ ] Display favorite tasks in a separate section of the UI.
 
    _**Suggestion**: To maintain clean and scalable code, consider using routing or the repository pattern if you're adding numerous endpoints._
