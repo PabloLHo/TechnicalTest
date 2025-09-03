@@ -8,7 +8,7 @@ export const getTodos = async (): Promise<Todo[]> => {
   return res.json();
 };
 
-export const createTodo = async (title: string): Promise<void> => {
+export const createTodo = async (title: string): Promise<Todo> => {
   const res = await fetch(BASE_URL, {
     method: "POST",
     headers: {
@@ -17,6 +17,7 @@ export const createTodo = async (title: string): Promise<void> => {
     body: JSON.stringify({ title, completed: false }),
   });
   if (!res.ok) throw new Error("Error adding todo");
+  return res.json();
 };
 
 export const toggleTodoStatus = async (

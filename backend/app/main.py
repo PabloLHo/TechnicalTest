@@ -103,5 +103,3 @@ def delete_todo(id: str):
         if t.id == id:
             todos.remove(t)
             save_todos(todos)
-
-

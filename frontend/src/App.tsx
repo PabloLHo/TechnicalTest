@@ -17,8 +17,11 @@ function App() {
 
   const addTodo = () => {
     if (!title.trim()) return;
-    createTodo(title);
+    createTodo(title).then((new_todo) => {
+      setTodos((prev) => [...prev, new_todo]);
+    });
     setTitle("");
+    
   };
 
   const toggleTodo = (id: string) => {
@@ -32,7 +35,9 @@ function App() {
   const deleteTodo = (id: string) => {
     const todo = todos.find((t) => t.id === id);
     if (!todo) return;
-    removeTodo(id);
+    removeTodo(id).then(() => {
+      setTodos((prev) => prev.filter((t) => (t.id !== id)));
+    });
   };
 
   return (
