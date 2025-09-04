@@ -31,7 +31,7 @@ The goal is to demonstrate your understanding of the codebase and your ability t
    _**Suggestion**: To maintain clean and scalable code, consider using routing or the repository pattern if you're adding numerous endpoints._
 
 5. **Create a README**
-   - [ ] Write a clear and concise README for this project.
+   - [X] Write a clear and concise README for this project.
 
 ## How to run the project
 
