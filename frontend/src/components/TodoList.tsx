@@ -16,19 +16,21 @@ const TodoList: React.FC<TodoListProps> = ({ todos, favouriteList, toggleTodo, d
   return (
     <>
       <TodoTabs favouriteList={favouriteList} checkTypeList={checkTypeList}  />
-      <ul className="space-y-2">
-        {todos.sort((a, b) => {
-            return Number(b.favourite === true) - Number(a.favourite === true);
-          }).map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            toggleTodo={toggleTodo}
-            deleteTodo={deleteTodo}
-            markFavourite={markFavourite}
-          />
-        ))}
-      </ul>
+      <div className="flex-1 overflow-y-auto">
+        <ul className="space-y-2">
+          {todos.sort((a, b) => {
+              return Number(b.favourite === true) - Number(a.favourite === true);
+            }).map((todo) => (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              toggleTodo={toggleTodo}
+              deleteTodo={deleteTodo}
+              markFavourite={markFavourite}
+            />
+          ))}
+        </ul>
+      </div>
     </>
   );
 };

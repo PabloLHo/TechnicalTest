@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:frontend": "vite",
-    "dev:backend": "cd ../backend && nodemon --watch ./backend --exec \"uvicorn app.main:app --port 8000\" --delay 1",
+    "dev:backend": "cd ../backend && nodemon --watch ./backend --exec \"uvicorn app.main:app --reload --port 8000\" --delay 1",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

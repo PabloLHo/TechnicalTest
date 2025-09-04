@@ -22,10 +22,17 @@ def test_update_todo():
 
     assert res.status_code == 200
     updated = res.json()
-    print(updated)
 
     assert updated["id"] == id
     assert not updated["completed"]
+
+    res = client.patch(f"/todos/{id}", json={"favourite": False})
+
+    assert res.status_code == 200
+    updated = res.json()
+
+    assert updated["id"] == id
+    assert not updated["favourite"]
 
 def test_delete_todo():
 
