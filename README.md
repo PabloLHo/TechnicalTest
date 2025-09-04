@@ -60,8 +60,8 @@ It allows you to manage tasks with titles, descriptions, and favourites ⭐, sav
 
 ## 🧪 Tests
 
-El repo incluye `mainTest.py` con pruebas de endpoints usando `TestClient`.  
-Para ejecutarlas (si añades `pytest` a dependencias):
+The repo includes `mainTest.py` with endpoint tests using `TestClient`.  
+To run them (if you add `pytest` to dependencies):
 
 ```bash
 pip install pytest
@@ -81,37 +81,37 @@ pytest mainTest.py
 TechnicalTest/
 ├─ backend/
 │  └─ app/
-│     ├─ main.py                  # Configuración FastAPI y CORS
+│     ├─ main.py                  # FastAPI and CORS configuration
 │     ├─ routes/todo_routes.py    # Endpoints REST
-│     ├─ models/todo.py           # Modelos Pydantic
-│     ├─ services/todo_service.py # Lectura/guardado JSON
-│     └─ data/todos.json          # Persistencia
+│     ├─ models/todo.py           # Pydantic Models
+│     ├─ services/todo_service.py # Read/save JSON
+│     └─ data/todos.json
 │  └─ requirements.txt
 │
 ├─ frontend/
 │  ├─ src/
-│  │  ├─ api/todo.ts              # Llamadas a la API
+│  │  ├─ api/todo.ts              # Calls to the API
 │  │  ├─ components/              # UI: Form, List, Item, Tabs
-│  │  ├─ types/todo.d.ts          # Tipado de Todo
+│  │  ├─ types/todo.d.ts
 │  │  └─ App.tsx / main.tsx
 │  ├─ package.json
 │  └─ vite.config.ts
 │
-├─ images/                        # Contiene las imagenes para el Readme
-├─ INSTRUCTIONS.md                # Instrucciones para el desarrollo de la tarea
+├─ images/                        # Includes the images for the Readme
+├─ INSTRUCTIONS.md                # Instructions for completing the task
 └─ README.md  ← (este archivo)
 ```
 
 ## 🔚 Endpoints
 
-| Método | Ruta                 | Body (JSON)                                      | Respuesta |
+| Method | Path                 | Body (JSON)                                      | Reply     |
 |-------:|----------------------|--------------------------------------------------|-----------|
 | GET    | `/todos`             | —                                                | `Todo[]`  |
 | POST   | `/todos`             | `{ "title": string, "description": string, "favourite": boolean }` | `Todo` |
 | PATCH  | `/todos/{id}`        | **Parcial**: `{ "completed": boolean }` ó `{ "favourite": boolean }` | `Todo` |
 | DELETE | `/todos/{id}`        | —                                                | `200 OK`  |
 
-> El `PATCH /todos/{id}` acepta **actualizaciones parciales**. Envía solo el campo que quieras cambiar (`completed` o `favourite`).
+> The `PATCH /todos/{id}` accepts **partial updates**. Send only the field you want to change (`completed` or `favourite`).
 
 ## 🖼️ Examples of use
 
