@@ -10,6 +10,7 @@ function App() {
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
   const [favourite, setFavourite] = useState(false);
+  const [standardList, setStandard] = useState(true);
 
   useEffect(() => {
     getTodos().then((data) => {
@@ -20,7 +21,10 @@ function App() {
   const addTodo = () => {
     if (!title.trim()) return;
     createTodo(title, description, favourite).then((new_todo) => {
-      setTodos((prev) => [...prev, new_todo]);
+      // The task is only added when your are in favourite mode and is a favourite one or in standard list mode
+      if((!standardList && favourite) || standardList)
+        setTodos((prev) => [...prev, new_todo]);
+      
     });
     clearForm();
   };
@@ -43,7 +47,11 @@ function App() {
     const todo = todos.find((t) => t.id === id);
     if (!todo) return;
     toggleTodoFavourite(id, todo.favourite).then((updated) => {
-      setTodos((prev) => prev.map((t) => (t.id === id ? updated : t)));
+      // If we are in favourite mode and we unmarked as favourite then the task dissapear from the favourite list
+      if(standardList)
+        setTodos((prev) => prev.map((t) => (t.id === id ? updated : t)));
+      else
+        setTodos((prev) => prev.filter((t) => (t.id !== id)));
     });
   };
 
@@ -53,6 +61,16 @@ function App() {
     removeTodo(id).then(() => {
       setTodos((prev) => prev.filter((t) => (t.id !== id)));
     });
+  };
+
+  const checkFavouriteList = (status: boolean) => {
+    setStandard(status);
+    if (!status)
+      setTodos((prev) => prev.filter((t) => (t.favourite === !status)));
+    else
+      getTodos().then((data) => {
+        setTodos(data);
+      });
   };
 
   return (
@@ -65,7 +83,7 @@ function App() {
           favourite={favourite} setFavourite={setFavourite} addTodo = {addTodo} clearForm={clearForm}
           />
 
-        <TodoList todos = {todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} markFavourite={markTodoFavourite} />
+        <TodoList todos={todos} favouriteList={standardList} toggleTodo={toggleTodo} deleteTodo={deleteTodo} markFavourite={markTodoFavourite} checkTypeList={checkFavouriteList} />
 
       </div>
     </div>

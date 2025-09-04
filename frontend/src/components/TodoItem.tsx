@@ -14,21 +14,23 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, toggleTodo, deleteTodo, markF
       key={todo.id}
       className="flex items-center gap-2 bg-gray-50 p-3 rounded-lg border border-gray-200"
     >
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => toggleTodo(todo.id)}
-        className="cursor-pointer"
-      />
-      <div className="flex-1 flex flex-col justify-between gap-2">
-        <span
-          className={` ${todo.completed ? "line-through text-gray-400" : ""}`}
-        >
-          {todo.title}
-        </span>
-        <span
-          className="text-sm text-gray-400"
-        >
+
+      <div className="flex-1 flex flex-col">
+        <div className="flex items-center gap-2">
+          <input
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => toggleTodo(todo.id)}
+              className="cursor-pointer"
+            />
+          <span
+            className={` ${todo.completed ? "line-through text-gray-400" : ""}`}
+          >
+            {todo.title}
+          </span>
+        </div>
+        
+        <span className="text-sm text-gray-400 mt-1">
           {todo.description}
         </span>
       </div>
