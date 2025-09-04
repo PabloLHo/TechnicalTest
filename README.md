@@ -54,8 +54,8 @@ It allows you to manage tasks with titles, descriptions, and favourites ⭐, sav
 
 ## 🔧 Requirements
 
-- **Python** 3.11+  
-- **Node.js** 20+ y **npm**  
+- **Python** 3.9+ (3.11 recommended) 
+- **Node.js** 18+ (Node 20 LTS recommended) y **npm**  
 - (Optional) **virtualenv** to isolate Python dependencies
 
 ## 🧪 Tests
